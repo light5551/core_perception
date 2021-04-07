@@ -115,7 +115,7 @@ void NormalDistributionsTransform<PointSourceType, PointTargetType>::computeTran
   gauss_c2 = outlier_ratio_ / pow(resolution_, 3);
   gauss_d3 = - log(gauss_c2);
   gauss_d1_ = -log(gauss_c1 + gauss_c2) - gauss_d3;
-  gauss_d2_ = -2 * log((-log(gauss_c1 * exp(-0.5) + gauss_c2) - gauss_d3) / gauss_d1_);
+  gauss_d2_ = - log(gauss_c2);//-2 * log((-log(gauss_c1 * exp(-0.5) + gauss_c2) - gauss_d3) / gauss_d1_);
 
   if (guess != Eigen::Matrix4f::Identity()) {
     final_transformation_ = guess;
